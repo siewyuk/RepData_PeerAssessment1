@@ -103,7 +103,7 @@ median(totalSteps)
 ## Are there differences in activity patterns between weekdays and weekends?
 First, find the day of the week for each measurement in the dataset. For
 this part, we will use the dataset with the filled-in values.
-```{r}
+```{r weekdayORweekend, echo = TRUE}
 weekdayORweekend <- function(date) {
     day <- weekdays(date)
     if (day %in% c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")) 
@@ -116,7 +116,7 @@ filledData$day <- sapply(filledData$date, FUN = weekdayORweekend)
 
 Now, let's plot the average number of steps taken on both weekdays and weekends.
 
-```{r}
+```{r averages, echo = TRUE}
 averages <- aggregate(steps ~ interval + day, data = filledData, mean)
 ggplot(averages, aes(interval, steps)) + 
     geom_line() + 
