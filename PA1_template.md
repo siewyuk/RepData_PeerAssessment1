@@ -28,7 +28,7 @@ qplot(totalSteps, binwidth=3, xlab = "Total Number of Steps Taken Each Day", mai
 mean(totalSteps, na.rm = TRUE)
 median(totalSteps, na.rm = TRUE)
 ```
-![plot of totalSteps](instructions_fig/totalSteps.png) 
+![plot of totalSteps](figure/totalSteps.png) 
 
 1. Average number of steps per day = ***9354.23***.
 2. Median number of steps per day = ***10,395***
@@ -48,7 +48,7 @@ ggplot(data = averageSteps, aes(x = interval, y = steps)) +
 #What is the maximum number of steps of 5-minute interval, averaged across all days?
 averageSteps[which.max(averageSteps$steps),]
 ```
-![plot of averageSteps](instructions_fig/averageSteps.png) 
+![plot of averageSteps](figure/averageSteps.png) 
 
 The 5-minute interval that contains the maximum averaged number of steps is 8:35 am (***835***).  
 The maximum averaged number of steps is ***206.1698***
@@ -94,7 +94,7 @@ qplot(totalSteps, binwidth = 3, xlab = "Total Number of Steps Taken Each Day", m
 mean(totalSteps)
 median(totalSteps)
 ```
-![plot of filled_totalSteps](instructions_fig/filled_totalSteps.png) 
+![plot of filled_totalSteps](figure/filled_totalSteps.png) 
 
 1. Average (mean) number of steps per day is **10766.19**.
 2. The median number of steps per day is **10766.19**.
@@ -127,7 +127,7 @@ ggplot(averages, aes(interval, steps)) +
     xlab("5-minute Interval") + 
     ylab("Number of Steps")
 ```
-![plot of weekdayORweeknd](instructions_fig/weekdayORweekend.png) 
+![plot of weekdayORweeknd](figure/weekdayORweekend.png) 
 
 
 1. From the plots, we can see that there is some differences between the weekdays and weekends.
