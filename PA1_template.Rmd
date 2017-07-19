@@ -20,7 +20,18 @@ dat <- data.table(read.csv("~/Downloads/activity.csv"))
 
 
 ## What is mean total number of steps taken per day?
+```{r totalsteps, echo = TRUE}
+#Ignore missing values in the dataset, use tapply on "steps" and sort by date. 
+totalSteps <- tapply(dat$steps, dat$date, FUN = sum, na.rm = TRUE)
+#Plot histogram and qplot
+qplot(totalSteps, binwidth=3, xlab = "Total Number of Steps Taken Each Day", main = "Figure 1") + 
+  geom_histogram(colour = "blue", fill= "blue")
+mean(totalSteps, na.rm = TRUE)
+median(totalSteps, na.rm = TRUE)
+```
 
+1. Average number of steps per day = ***9354.23***.
+2. Median number of steps per day = ***10,395***
 
 
 ## What is the average daily activity pattern?
