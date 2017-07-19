@@ -48,6 +48,7 @@ ggplot(data = averageSteps, aes(x = interval, y = steps)) +
 #What is the maximum number of steps of 5-minute interval, averaged across all days?
 averageSteps[which.max(averageSteps$steps),]
 ```
+![plot of averageSteps](instructions_fig/averageSteps.png) 
 
 The 5-minute interval that contains the maximum averaged number of steps is 8:35 am (***835***).  
 The maximum averaged number of steps is ***206.1698***
