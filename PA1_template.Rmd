@@ -5,9 +5,18 @@ output:
     keep_md: true
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 ## Loading and preprocessing the data
-
+```{r dat, echo = TRUE}
+#Load required libraries
+library(data.table)
+library(ggplot2)
+#Load csv data
+dat <- data.table(read.csv("~/Downloads/activity.csv"))
+```
 
 
 ## What is mean total number of steps taken per day?
