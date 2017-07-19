@@ -20,7 +20,7 @@ dat <- data.table(read.csv("~/Downloads/activity.csv"))
 
 
 ## What is mean total number of steps taken per day?
-```{r totalsteps, echo = TRUE}
+```{r total, echo = TRUE}
 #Ignore missing values in the dataset, use tapply on "steps" and sort by date. 
 totalSteps <- tapply(dat$steps, dat$date, FUN = sum, na.rm = TRUE)
 #Plot histogram and qplot
