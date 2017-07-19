@@ -122,7 +122,7 @@ Now, let's plot the average number of steps taken on both weekdays and weekends.
 ```{r}
 averages <- aggregate(steps ~ interval + day, data = filledData, mean)
 ggplot(averages, aes(interval, steps)) + 
-    geom_line() + 
+    geom_line(color = "blue") + 
     facet_grid(day ~ .) + 
     xlab("5-minute Interval") + 
     ylab("Number of Steps")
