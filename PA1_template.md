@@ -94,6 +94,7 @@ qplot(totalSteps, binwidth = 3, xlab = "Total Number of Steps Taken Each Day", m
 mean(totalSteps)
 median(totalSteps)
 ```
+![plot of filled_totalSteps](instructions_fig/filled_totalSteps.png) 
 
 1. Average (mean) number of steps per day is **10766.19**.
 2. The median number of steps per day is **10766.19**.
