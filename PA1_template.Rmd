@@ -53,7 +53,51 @@ The maximum averaged number of steps is ***206.1698***
 
 
 ## Imputing missing values
+Note that there are a number of days/intervals where there are missing values (coded as `NA`).
+The presence of missing days may introduce bias into some calculations or summaries of the data.
+```{r missing, echo = TRUE}
+#Replace missing values with "NA"
+missing <- is.na(dat$steps)
+#Total missing values
+table(missing)
+```
+There are **2,304** missing values in the dataset.
 
+All of the missing values are filled in with mean value for that 5-minute interval.
+```{r fill.value, echo = TRUE}
+#Replace each missing value with the mean value of its 5-minute interval
+fillValue <- function(steps, interval) {
+  filled <- NA
+  if (!is.na(steps))
+    filled <- c(steps)
+  else
+    filled <- (averageSteps[averageSteps$interval == interval, "steps"])
+  return(filled)
+}
+filledData <- dat
+filledData$steps <- mapply(fillValue, filledData$steps, filledData$interval)
+#Verify again any missing dataset
+missing <- is.na(filledData$steps)
+table(missing)
+```
+
+Using the filled data set, create a histogram of the total number of steps taken each day and calculate the mean and median total number of steps.
+```{r totalSteps, echo = TRUE}
+#Plot histogram of total number of steps taken each day
+totalSteps <- tapply(filledData$steps, filledData$date, FUN = sum)
+qplot(totalSteps, binwidth = 3, xlab = "Total Number of Steps Taken Each Day", main="Figure 3") + 
+  geom_histogram(colour = "blue", fill = "blue")
+#Calculate mean and median total number of steps
+mean(totalSteps)
+median(totalSteps)
+```
+
+1. Average (mean) number of steps per day is **10766.19**.
+2. The median number of steps per day is **10766.19**.
+3. From the new filled dataset, the mean and median values are higher as compared to the original dataset. 
+4. In the original dataset, there are days with `steps` values `NA` for any `interval`. 
+5. The total number of steps taken in such days are set to 0s by default. 
+6. After replacing missing `steps` values with the mean `steps` of associated `interval` value, these 0 values are removed from the histogram of total number of steps taken each day.
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
