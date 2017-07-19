@@ -127,7 +127,7 @@ ggplot(averages, aes(interval, steps)) +
     xlab("5-minute Interval") + 
     ylab("Number of Steps")
 ```
-![plot of weekdayORweeknd](instructions_fig/weekdayORweekend.png) 
+
 
 
 1. From the plots, we can see that there is some differences between the weekdays and weekends.
